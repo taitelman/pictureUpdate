@@ -1,0 +1,369 @@
+
+Request payload
+
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="_method"
+put
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="authenticity_token"
+CXsLob0VSToe2w554FBXhmlQx0qGi70CAANVFXwRbMQ=
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="item_id"
+1972243
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product_id"
+2521162
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][0][photo]"; filename=""
+Content-Type: application/octet-stream
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][0][image_url]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][0][title]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][0][position]"
+2
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][0][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][0][id]"
+3156524
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][1][photo]"; filename=""
+Content-Type: application/octet-stream
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][1][image_url]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][1][title]"
+dot
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][1][position]"
+2
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][1][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][1][_destroy]"
+1
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][1][id]"
+4540543
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][2][photo]"; filename=""
+Content-Type: application/octet-stream
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][2][image_url]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][2][title]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][2][position]"
+3
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][2][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][3][photo]"; filename=""
+Content-Type: application/octet-stream
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][3][image_url]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][3][title]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][3][position]"
+4
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][3][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][4][photo]"; filename=""
+Content-Type: application/octet-stream
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][4][image_url]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][4][title]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][4][position]"
+5
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][4][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][5][photo]"; filename=""
+Content-Type: application/octet-stream
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][5][image_url]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][5][title]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][5][position]"
+6
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][5][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][6][photo]"; filename=""
+Content-Type: application/octet-stream
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][6][image_url]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][6][title]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][6][position]"
+7
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_images_attributes][6][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[spec]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][0][position]"
+1
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][0][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][0][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][0][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][0][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][1][position]"
+2
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][1][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][1][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][1][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][1][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][2][position]"
+3
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][2][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][2][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][2][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][2][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][3][position]"
+4
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][3][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][3][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][3][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][3][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][4][position]"
+5
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][4][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][4][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][4][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][4][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][5][position]"
+6
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][5][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][5][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][5][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][5][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][6][position]"
+7
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][6][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][6][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][6][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][6][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][7][position]"
+8
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][7][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][7][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][7][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][7][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][8][position]"
+9
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][8][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][8][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][8][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][8][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][9][position]"
+10
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][9][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][9][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][9][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][9][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][10][position]"
+11
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][10][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][10][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][10][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][10][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][11][position]"
+12
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][11][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][11][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][11][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][11][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][12][position]"
+13
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][12][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][12][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][12][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][12][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][13][position]"
+14
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][13][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][13][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][13][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][13][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][14][position]"
+15
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][14][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][14][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][14][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][14][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][15][position]"
+16
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][15][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][15][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][15][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][15][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][16][position]"
+17
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][16][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][16][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][16][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][16][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][17][position]"
+18
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][17][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][17][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][17][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][17][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][18][position]"
+19
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][18][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][18][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][18][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][18][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][19][position]"
+20
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][19][group_name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][19][name]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][19][value]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[product_features_attributes][19][_destroy]"
+0
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="save"
+שמור
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[separator]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="product[remove_char]"
+-----------------------------365999027248215871926048630
+Content-Disposition: form-data; name="show_as_new"
+-----------------------------365999027248215871926048630--
+
