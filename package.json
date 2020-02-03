@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "form-data": "^3.0.0",
     "fs": "0.0.1-security",
     "request": "^2.88.0"
   }
