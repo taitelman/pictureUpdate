@@ -8,7 +8,7 @@
  */
 
 const request = require('request').defaults({ jar: true, debug: true });
-const formDataLib = require('form-data');
+const FormData = require('form-data');
 const cheerio = require('cheerio');
 //require('request-debug')(request);
 //request.debug=true;
@@ -19,10 +19,10 @@ const LOGIN_URL = "https://secure.konimbo.co.il/user_sessions";
 const UPLOAD_PIC_URL = "https://secure.konimbo.co.il/admin/items/xxx/update_spec";
 const EDIT_PIC_URL = "https://secure.konimbo.co.il/admin/items/xxx/edit_spec";
 
-let txtfile = fs.readFileSync('./passwords.json');
-let credentials = JSON.parse(txtfile);
-
-async function login(callback) {
+let credentials = require('./passwords.json');
+console.log(`credentials = ${JSON.stringify(credentials)}`);
+  
+  async function login(callback) {
   const options = {
     url: LOGIN_URL,
     method: 'POST',
@@ -87,7 +87,8 @@ function sendItemUpdate(token, itemNumber, filename) {
       photo: {
         filename: '',
         contentType: 'application/octet-stream',
-        value: image
+        value: image,
+        name: filename
       },
       image_url: '',
       title: '',
@@ -109,17 +110,14 @@ function sendItemUpdate(token, itemNumber, filename) {
     show_as_new: ''
   }];
   
-  const formData = {
-    "_method" : "put",
-    authenticity_token: token,
-    item_id: itemNumber,
-    product_id: 2521162,
-    //product,
-    save: 'שמור'
-    // ,attachments: [
-    //   fs.createReadStream(__dirname + filename),
-    // ]
-  };
+  //const formData = formidable({ multiples: true });
+  const formData = new FormData();
+  formData.append("_method" , "put");
+  formData.append("authenticity_token",token);
+  formData.append("item_id",itemNumber );
+  formData.append("product_id", 2521162);
+  formData.append("product",JSON.stringify(product));
+  formData.append("save", 'שמור');
   
   const headers = {
     Referer: EDIT_PIC_URL.replace('xxx', encodeURI(itemNumber)),
@@ -132,7 +130,7 @@ function sendItemUpdate(token, itemNumber, filename) {
   
   const item_url = updateURL;
   console.log(`sending POST request to : ${item_url}`);
-  request.post({ url: item_url, formData: formData, headers } , (err, httpResponse, body) => {
+  formData.submit(item_url , (err, httpResponse, body) => {
     if (err) {
       return console.error('upload failed:', err);
     }
