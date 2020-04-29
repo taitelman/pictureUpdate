@@ -32,11 +32,7 @@ async function login(callback) {
 		//path: '/user_sessions',
 		formData: {
 			"user_session[username]": credentials.user,
-			"user_session[password]": credentials.password,
-			goto_url: "/admin/orders?status_option_title=%D7%A8%D7%9C%D7%95%D7%95%D7%A0%D7%98%D7%99%D7%95%D7%AA",
-			current_url: GOTO_URL,
-			current_ip: "10.0.1.171",
-			commit: "כניסה"
+			"user_session[password]": credentials.password
 		},
 		headers: {
 			"Content-Type" : ENCODED_MIME,
@@ -89,23 +85,9 @@ function sendItemUpdate(itemNumber,productId, filename, cookies) {
 		'show_as_new': '1'
 	};
 	
-	let headers =
-		{
-			'User-Agent': USERAGENT,
-			'Content-Type': ENCODED_MIME,
-			Referer: editURL,
-			Origin: 'https://secure.konimbo.co.il/',
-			Connection: "keep-alive",
-			"Accept-Encoding": "gzip, deflate, br",
-			Host: "secure.konimbo.co.il",
-			Accept: "*/*",
-			"Cache-Control": "no-cache"
-		};
-	
 	let options = {
 		method: 'POST',
 		url: updateURL,
-		headers,
 		formData,
 		followAllRedirects: true,
 		maxRedirects: 20,
