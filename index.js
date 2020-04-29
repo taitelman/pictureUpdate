@@ -7,18 +7,7 @@
  */
 
 const request = require('request').defaults({jar: true});
-const http = require('follow-redirects').http;
-const https = require('follow-redirects').https;
-var qs = require('querystring');
 
-//defaults({jar: true, debug: true});
-//const FormData = require('form-data');
-//const JSONFormatter = require('json-form-data');
-//const FileAPI = require('file-api') , File = FileAPI.File;
-
-//const cheerio = require('cheerio');
-//require('request-debug')(request);
-//request.debug=true;
 const fs = require('fs');
 
 const WEB_URL = "https://secure.konimbo.co.il/login?goto_url=%2Fadmin%2Fitems%2F";
@@ -50,7 +39,8 @@ async function login(callback) {
 			commit: "כניסה"
 		},
 		headers: {
-			"Content-Type" : ENCODED_MIME
+			"Content-Type" : ENCODED_MIME,
+			"User-Agent": USERAGENT
 		},
 		followAllRedirects: true,
 		maxRedirects: 20,
@@ -72,38 +62,6 @@ async function login(callback) {
 		}
 	});
 }
-
-async function uploadFile(itemNumber, productId, filename) {
-	
-	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(itemNumber));
-	
-	//sendItemUpdate(null, itemNumber, filename);
-	
-	request.get(editURL, (error, response, body) => {
-	  if (error) {
-	    return console.error('get edit item failed:', error);
-	  } else {
-		  const cookies = response.headers["set-cookie"];
-		  //console.log(`cookies=${JSON.stringify(cookies)}`);
-
-	    if (response.statusCode === 200) {
-	      // const $ = cheerio.load(body);
-	      // const tokenElement = $('input[name="authenticity_token"]');
-	      // const token = tokenElement.attr('value');
-	      // if (!token) {
-	      //   console.error(`failed fetching authenticity_token`);
-	      //   return;
-	      // }
-	      sendItemUpdate(itemNumber, productId, filename);
-	      console.log('get item ok:', response.statusCode);
-	    }
-	  }
-
-	});
-	
-	
-}
-
 
 function sendItemUpdate(itemNumber,productId, filename, cookies) {
 	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(itemNumber));
