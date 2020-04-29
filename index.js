@@ -59,7 +59,7 @@ async function login(callback) {
 	});
 }
 
-function sendItemUpdate(itemNumber,productId, filename, cookies) {
+function sendItemUpdate(itemNumber,productId, filename) {
 	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(itemNumber));
 	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(itemNumber));
 	
@@ -110,6 +110,6 @@ function sendItemUpdate(itemNumber,productId, filename, cookies) {
 	
 }
 
-login((cookies) => {
-	sendItemUpdate('1972243-בלון-אוויר-אננס', "2521162", '/resources/dot.jpg', cookies);
+login(() => {
+	sendItemUpdate('1972243-בלון-אוויר-אננס', "2521162", '/resources/dot.jpg');
 });
