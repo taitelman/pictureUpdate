@@ -4,5 +4,9 @@ a sample node.js app to update a pic
 
 current issues:
 
--[ ] how to generate the "authenticity_token"
-   in the update request
+you need to create a json file named `passwords.json`
+which is in the format:
+```{"user": "yyy" , "password":"xxx"}```
+
+then simply run ```node index.js```
+don't forget to run once ```npm i```
