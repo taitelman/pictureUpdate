@@ -86,29 +86,28 @@ async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 		'show_as_new': '1'
 	};
 	
+	let options = {
+		method: 'POST',
+		url: updateURL,
+		formData,
+		followAllRedirects: true,
+		maxRedirects: 20,
+		jar: true // for cookies
+	};
 	
-	
-	console.log(`sending POST request to : ${updateURL}`);
 	return new Promise ((resolve, reject) => {
-		let options = {
-			method: 'POST',
-			url: updateURL,
-			formData,
-			followAllRedirects: true,
-			maxRedirects: 20,
-			jar: true // for cookies
-		};
+		console.log(`sending POST request to : ${updateURL}`);
 		
 		request.post(options, (err, httpResponse, body) => {
 			if (err) {
-				reject('upload failed:', err);
+				reject(err);
 			} else if (httpResponse.statusCode === 302 && httpResponse.headers.location != null) {
 				reject(`Upload failed . redirect to ${httpResponse.headers.location} `);
 			} else if (httpResponse.statusCode === 200) {
-				console.log('upload Success:', httpResponse.statusCode);
+				console.log(`upload Success: ${httpResponse.statusCode}`);
 				resolve(body);
 			} else {
-				reject('upload almost went ok:', httpResponse.statusCode);
+				reject(`upload almost went ok: ${httpResponse.statusCode}`);
 			}
 		});
 	});
@@ -119,7 +118,7 @@ async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 async function theWholeSequence() {
 	try {
 		const response = await login();
-		const success = sendItemUpdate('בלון-אוויר-אננס', "1972243", "2521162", '/resources/dot.jpg');
+		const success = await sendItemUpdate('בלון-אוויר-אננס', "1972243", "2521162", './resources/dot.jpg');
 	} catch (err) {
 		console.error(`something bad happened: ${err}`);
 	}
