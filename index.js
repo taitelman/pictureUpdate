@@ -43,23 +43,24 @@ async function login(callback) {
 		jar: true // for cookies
 	};
 	
-	request(options, (error, response, body) => {
+	return new Promise( (resolve, reject) => {
+		request(options, (error, response, body) => {
 		if (!error && response.statusCode === 200) {
 			console.log("logged in");
 			if (callback) {
 				const cookies = response.headers["set-cookie"];
 				console.log(`cookies=${JSON.stringify(cookies)}`);
 				callback(cookies);
-				return cookies;
 			}
-
+			resolve(response)
 		} else {
-			console.log(`logging failed: ${response.statusCode}`);
+			reject(`logging failed: ${response.statusCode}`);
 		}
 	});
+	})
 }
 
-function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
+async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(itemDescription+ '-' +itemNumber));
 	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(itemDescription + '-' + itemNumber));
 	
@@ -85,31 +86,43 @@ function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 		'show_as_new': '1'
 	};
 	
-	let options = {
-		method: 'POST',
-		url: updateURL,
-		formData,
-		followAllRedirects: true,
-		maxRedirects: 20,
-		jar: true // for cookies
-	};
+	
 	
 	console.log(`sending POST request to : ${updateURL}`);
-	request.post(options, (err, httpResponse, body) => {
-		if (err) {
-			console.error('upload failed:', err);
-			throw new Error(err);
-		} else if (httpResponse.statusCode === 302 && httpResponse.headers.location != null ) {
-			console.log(`Upload failed . redirect to ${httpResponse.headers.location} `);
-		} else if (httpResponse.statusCode === 200) {
-			console.log('upload Success:', httpResponse.statusCode);
-		} else {
-			console.log('upload almost went ok:', httpResponse.statusCode);
-		}
+	return new Promise ((resolve, reject) => {
+		let options = {
+			method: 'POST',
+			url: updateURL,
+			formData,
+			followAllRedirects: true,
+			maxRedirects: 20,
+			jar: true // for cookies
+		};
+		
+		request.post(options, (err, httpResponse, body) => {
+			if (err) {
+				reject('upload failed:', err);
+			} else if (httpResponse.statusCode === 302 && httpResponse.headers.location != null) {
+				reject(`Upload failed . redirect to ${httpResponse.headers.location} `);
+			} else if (httpResponse.statusCode === 200) {
+				console.log('upload Success:', httpResponse.statusCode);
+				resolve(body);
+			} else {
+				reject('upload almost went ok:', httpResponse.statusCode);
+			}
+		});
 	});
 	
 }
 
-login(() => {
-	sendItemUpdate('בלון-אוויר-אננס',"1972243", "2521162", './dev/somethingNew/dror/resources/dot.jpg');
-});
+
+async function theWholeSequence() {
+	try {
+		const response = await login();
+		const success = sendItemUpdate('בלון-אוויר-אננס', "1972243", "2521162", '/resources/dot.jpg');
+	} catch (err) {
+		console.error(`something bad happened: ${err}`);
+	}
+}
+
+theWholeSequence();
