@@ -59,17 +59,17 @@ async function login(callback) {
 	});
 }
 
-function sendItemUpdate(itemNumber,productId, filename) {
-	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(itemNumber));
-	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(itemNumber));
+function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
+	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(itemDescription+ '-' +itemNumber));
+	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(itemDescription + '-' + itemNumber));
 	
 	let formData = {
 		'_method': 'put',
 		'authenticity_token': '',
-		'item_id': '1972243',
+		'item_id': itemNumber,
 		'product_id': productId,
 		'product[product_images_attributes][1][photo]': {
-			'value': fs.createReadStream('/home/taimor/dev/somethingNew/dror/resources/dot.jpg'),
+			'value': fs.createReadStream(filename),
 			'options': {
 				'filename': 'dot.jpg',
 				'contentType': "image/jpeg"
@@ -111,5 +111,5 @@ function sendItemUpdate(itemNumber,productId, filename) {
 }
 
 login(() => {
-	sendItemUpdate('1972243-בלון-אוויר-אננס', "2521162", '/resources/dot.jpg');
+	sendItemUpdate('בלון-אוויר-אננס',"1972243", "2521162", './dev/somethingNew/dror/resources/dot.jpg');
 });
