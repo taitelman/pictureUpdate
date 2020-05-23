@@ -61,8 +61,10 @@ async function login(callback) {
 }
 
 async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
-	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(itemDescription+ '-' +itemNumber));
-	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(itemDescription + '-' + itemNumber));
+	const fullItemDesc = itemNumber+itemDescription;
+	console.log(`itemfulldesc: ${fullItemDesc}`);
+	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(fullItemDesc));
+	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(fullItemDesc));
 	
 	let formData = {
 		'_method': 'put',
@@ -118,7 +120,9 @@ async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 async function theWholeSequence() {
 	try {
 		const response = await login();
-		const success = await sendItemUpdate('בלון-אוויר-אננס', "1972243", "2521162", './resources/dot.jpg');
+		const itemNum = 1972243;
+		const itemDesc= "-בלון-אוויר-אננס";
+		const success = await sendItemUpdate(itemDesc, itemNum, "2521162", './resources/dot.jpg');
 	} catch (err) {
 		console.error(`something bad happened: ${err}`);
 	}
