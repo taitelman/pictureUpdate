@@ -85,13 +85,16 @@ async function getProductId(itemDescription, itemNumber) {
 			} else if (httpResponse.statusCode === 302 && httpResponse.headers.location != null) {
 				reject(`fetch failed . redirect to ${httpResponse.headers.location} `);
 			} else if (httpResponse.statusCode === 200) {
-				//return "2521162";
 				console.log(`fetch Success: ${httpResponse.statusCode}`);
 				// the extract the productId we will use CSS selector
 				// use JQuery to extract table.small:nth-child(11) > tbody:nth-child(1) > tr:nth-child(16) > td:nth-child(2)
 				const $ = cheerio.load(body);
 				const productId = $('table.small:nth-child(11) > tbody:nth-child(1) > tr:nth-child(16) > td:nth-child(2)').text();
-				resolve(productId);
+				const validated = parseInt(productId);
+				if (validated === NaN) {
+					reject(`product ID: ${productId} is not a number.`);
+				}
+				resolve(parseInt(validated));
 			} else {
 				reject(`fetch almost went ok: ${httpResponse.statusCode}`);
 			}
