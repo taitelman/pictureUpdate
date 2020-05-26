@@ -9,13 +9,15 @@
 const request = require('request').defaults({jar: true});
 
 const fs = require('fs');
+const cheerio = require('cheerio')
 
 const WEB_URL = "https://secure.konimbo.co.il/login?goto_url=%2Fadmin%2Fitems%2F";
 const LOGIN_URL = "https://secure.konimbo.co.il/user_sessions";
 const GOTO_URL="https://secure.konimbo.co.il/login?goto_url=%2Fadmin%2Forders%3Fstatus_option_title%3D%25D7%25A8%25D7%259C%25D7%2595%25D7%2595%25D7%25A0%25D7%2598%25D7%2599%25D7%2595%25D7%25AA";
 
-const UPLOAD_PIC_URL = "https://secure.konimbo.co.il/admin/items/xxx/update_spec";
-const EDIT_PIC_URL = "https://secure.konimbo.co.il/admin/items/xxx/edit_spec";
+const BASE_ITEM_URL = "https://secure.konimbo.co.il/admin/items/xxx";
+const UPLOAD_PIC_URL = BASE_ITEM_URL+ "/update_spec";
+const EDIT_PIC_URL = BASE_ITEM_URL +"/edit_spec";
 
 const USERAGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36";
 const ENCODED_MIME = 'application/x-www-form-urlencoded';
@@ -59,6 +61,45 @@ async function login(callback) {
 	});
 	})
 }
+
+
+async function getProductId(itemDescription, itemNumber) {
+	const fullItemDesc = itemNumber + itemDescription;
+	console.log(`itemfulldesc: ${fullItemDesc}`);
+	const url = BASE_ITEM_URL.replace('xxx', encodeURI(fullItemDesc));
+	
+	let options = {
+		method: 'GET',
+		url: url,
+		followAllRedirects: true,
+		maxRedirects: 20,
+		jar: true // for cookies
+	};
+	
+	return new Promise ((resolve, reject) => {
+		console.log(`sending GET request to : ${url}`);
+		
+		request.get(options, (err, httpResponse, body) => {
+			if (err) {
+				reject(err);
+			} else if (httpResponse.statusCode === 302 && httpResponse.headers.location != null) {
+				reject(`fetch failed . redirect to ${httpResponse.headers.location} `);
+			} else if (httpResponse.statusCode === 200) {
+				//return "2521162";
+				console.log(`fetch Success: ${httpResponse.statusCode}`);
+				// the extract the productId we will use CSS selector
+				// use JQuery to extract table.small:nth-child(11) > tbody:nth-child(1) > tr:nth-child(16) > td:nth-child(2)
+				const $ = cheerio.load(body);
+				const productId = $('table.small:nth-child(11) > tbody:nth-child(1) > tr:nth-child(16) > td:nth-child(2)').text();
+				resolve(productId);
+			} else {
+				reject(`fetch almost went ok: ${httpResponse.statusCode}`);
+			}
+		});
+	});
+	
+}
+
 
 async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 	const fullItemDesc = itemNumber+itemDescription;
@@ -122,7 +163,8 @@ async function theWholeSequence() {
 		const response = await login();
 		const itemNum = 1972243;
 		const itemDesc= "-בלון-אוויר-אננס";
-		const success = await sendItemUpdate(itemDesc, itemNum, "2521162", './resources/dot.jpg');
+		const productId = await getProductId(itemDesc, itemNum);
+		const success = await sendItemUpdate(itemDesc, itemNum, productId, './resources/dot.jpg');
 	} catch (err) {
 		console.error(`something bad happened: ${err}`);
 	}
