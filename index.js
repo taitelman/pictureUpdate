@@ -93,6 +93,7 @@ async function getProductId(itemDescription, itemNumber) {
 				const validated = parseInt(productId);
 				if (validated === NaN) {
 					reject(`product ID: ${productId} is not a number.`);
+					return;
 				}
 				resolve(parseInt(validated));
 			} else {
