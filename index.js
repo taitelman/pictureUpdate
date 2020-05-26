@@ -109,7 +109,6 @@ async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 	const fullItemDesc = itemNumber+itemDescription;
 	console.log(`itemfulldesc: ${fullItemDesc}`);
 	const updateURL = UPLOAD_PIC_URL.replace('xxx', encodeURI(fullItemDesc));
-	const editURL = EDIT_PIC_URL.replace('xxx', encodeURI(fullItemDesc));
 	
 	let formData = {
 		'_method': 'put',
