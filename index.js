@@ -26,7 +26,7 @@ const ENCODED_MIME = 'application/x-www-form-urlencoded';
 let credentials = require('./passwords.json');
 console.log(`credentials = ${JSON.stringify(credentials)}`);
 
-async function login(callback) {
+async function login() {
 	const options = {
 		url: LOGIN_URL,
 		method: 'POST',
@@ -49,11 +49,6 @@ async function login(callback) {
 		request(options, (error, response, body) => {
 		if (!error && response.statusCode === 200) {
 			console.log("logged in");
-			if (callback) {
-				const cookies = response.headers["set-cookie"];
-				console.log(`cookies=${JSON.stringify(cookies)}`);
-				callback(cookies);
-			}
 			resolve(response)
 		} else {
 			reject(`logging failed: ${response.statusCode}`);
@@ -163,7 +158,7 @@ async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 
 async function theWholeSequence() {
 	try {
-		const response = await login();
+		await login();
 		const itemNum = 1972243;
 		const itemDesc= "-בלון-אוויר-אננס";
 		const productId = await getProductId(itemDesc, itemNum);
