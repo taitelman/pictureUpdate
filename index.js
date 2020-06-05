@@ -21,6 +21,7 @@ const EDIT_PIC_URL = BASE_ITEM_URL +"/edit_spec";
 
 const USERAGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36";
 const ENCODED_MIME = 'application/x-www-form-urlencoded';
+const API_TOKEN="12112dsdsdss4244235r"
 
 
 let credentials = require('./passwords.json');
@@ -68,7 +69,11 @@ async function getProductId(itemDescription, itemNumber) {
 		url: url,
 		followAllRedirects: true,
 		maxRedirects: 20,
-		jar: true // for cookies
+		jar: true, // for cookies
+		headers: {
+			"Authentication" : "Bearer " + API_TOKEN,
+			"User-Agent": USERAGENT
+		}
 	};
 	
 	return new Promise ((resolve, reject) => {
@@ -133,6 +138,10 @@ async function sendItemUpdate(itemDescription, itemNumber,productId, filename) {
 		formData,
 		followAllRedirects: true,
 		maxRedirects: 20,
+		headers: {
+			"Authentication" : "Bearer " + API_TOKEN,
+			"User-Agent": USERAGENT
+		},
 		jar: true // for cookies
 	};
 	
